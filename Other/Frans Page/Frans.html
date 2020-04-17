@@ -36,6 +36,11 @@
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
   }
+
+  .mySlides {
+    display: none;
+  }
+
   .container-fluid {
     padding: 60px 50px;
   }
@@ -218,20 +223,20 @@
   <p>Giptaken voor Frans!</p> 
 </div>
 
-<!-- Container (About Section) -->
+<!-- Container (Taken Section) -->
 <div id="taken" class="container-fluid text-center">
   <h2>Taken voor Frans</h2>
   <h4>Klik op het icoontje om de taak te bekijken.</h4><br>
   <div class="row slideanim">
     <div class="col-sm-4"></div>
     <div class="col-sm-2">
-        <a href="#contact">
+        <a href="#taak1">
           <span class="glyphicon glyphicon-book logo-small"></span>
           <h4>TAAK 1</h4>
         </a>
     </div>
     <div class="col-sm-2">
-        <a href="#contact">
+        <a href="#taak2">
           <span class="glyphicon glyphicon-book logo-small"></span>
           <h4>TAAK 2</h4>
         </a>
@@ -239,7 +244,7 @@
   </div>
 </div>
 
-<!-- Container (Services Section) -->
+<!-- Container (Vakken Section) -->
 <div id="vakken" class="container-fluid text-center">
   <h2>Vakken</h2>
   <h4>Klik op het icoontje om van pagina te veranderen.</h4>
@@ -293,6 +298,22 @@
   </div>
 </div>
 
+<div id="taak1" class="container-fluid">
+  <h2>Reportage Photo</h2>
+  <h4>Om de 20 seconden komt er een nieuwe foto tevoorschijn!</h4>
+
+  <div style="max-width:800px">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia1.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia2.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia3.png" style="width:100%">
+  </div>
+  
+</div>
+
+<div id="taak2" class="container-fluid">
+  <h2>Foire Aux Questions</h2>
+</div>
+
 
 
 <div id="einde"></div>
@@ -342,6 +363,21 @@ $(document).ready(function(){
 
 function goBack() {
   window.history.back();
+}
+
+var myIndexx = 0;
+smth();
+
+function smth() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndexx++;
+  if (myIndexx > x.length) {myIndexx = 1}    
+  x[myIndexx-1].style.display = "block";  
+  setTimeout(smth, 20000); // Change image every 2 seconds
 }
 
 </script>
