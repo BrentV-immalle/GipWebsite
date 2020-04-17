@@ -300,8 +300,9 @@
 
 <div id="taak1" class="container-fluid">
   <h2>Reportage Photo</h2>
-  <h4>Om de 20 seconden komt er een nieuwe foto tevoorschijn!</h4>
+  <h4>Je kan via de pijltjes tussen de foto's navigeren.</h4>
 
+  <!-- voor automatische slideshow
   <div style="max-width:800px">
     <img class="mySlides" src="/GipWebsite/Other/Images/dia1.png" style="width:100%">
     <img class="mySlides" src="/GipWebsite/Other/Images/dia2.png" style="width:100%">
@@ -316,8 +317,29 @@
     <img class="mySlides" src="/GipWebsite/Other/Images/dia11.png" style="width:100%">
     <img class="mySlides" src="/GipWebsite/Other/Images/dia12.png" style="width:100%">
   </div>
-  
+ -->
+
+  <div style="max-width: 800px;">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia1.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia2.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia3.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia4.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia5.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia6.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia7.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia8.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia9.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia10.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia11.png" style="width:100%">
+    <img class="mySlides" src="/GipWebsite/Other/Images/dia12.png" style="width:100%">
+  </div><br>
+
+  <button class="glyphicon glyphicon-chevron-left" onclick="plusDivs(-1)"></button>
+  <div class="col-sm-5"></div>
+  <button class="glyphicon glyphicon-chevron-right" onclick="plusDivs(+1)"></button>
 </div>
+
+<!-- -->
 
 <div id="taak2" class="container-fluid">
   <h2><strong>Foire aux questions</strong></h2>
@@ -418,9 +440,13 @@ function goBack() {
   window.history.back();
 }
 
+// Slideshow automatisch
+/*
 var myIndexx = 0;
 smth();
 
+
+// Slideshow automatisch
 function smth() {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -431,6 +457,24 @@ function smth() {
   if (myIndexx > x.length) {myIndexx = 1}    
   x[myIndexx-1].style.display = "block";  
   setTimeout(smth, 20000); // Change image every 2 seconds
+}*/
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
 }
 
 </script>
